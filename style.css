@@ -1,0 +1,82 @@
+.hidden {
+    display: none;
+}
+
+ body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #FAFAFA;
+        font: 12pt "Tahoma";
+    }
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 10mm auto;
+        border: 1px #D3D3D3 solid;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .page-content {
+        padding: 1cm;
+        height: 257mm;
+    }
+    
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    @media print {
+        html, body {
+            width: 210mm;
+            height: 297mm;        
+        }
+        .page {
+            margin: 0;
+            border: initial;
+            border-radius: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+    }
+   table.full-width {
+       margin-top: 20px;
+       width: 100%;
+       border-collapse:separate;
+       border-spacing:0 5px;
+   }
+  
+   table.full-width > thead > tr > th {
+       text-align: left;
+       border-bottom: 1px black solid;
+   }
+   
+   table.full-width > tbody > tr > td {
+       border-bottom: 1px black dashed;
+   }
+   
+   section.terms-and-condition {
+       margin-top: 20px;
+   }
+   
+   section.payment {
+       text-align: right;
+   }
+   
+   section.signature > div.sincerely-yours {
+       margin-top: 30px;
+   }
+   
+   section.signature > div.signer-name {
+       margin-top: 100px;
+   }

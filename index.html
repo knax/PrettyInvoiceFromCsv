@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <script data-require="jquery@*" data-semver="2.1.4" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script data-require="angular.js@1.4.0" data-semver="1.4.0" src="https://code.angularjs.org/1.4.0/angular.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  
+  <body ng-app="Main">
+    <div ng-controller="MainController">
+      <div id="input">
+        <input type="file" id="csvFile" />
+        <button ng-click="parse()">Parse</button>
+      </div>
+      <div id="pages">
+        <div class="page" ng-repeat="page in pages">
+          <div class="page-content">
+            
+            <section class="receipent-details">
+              <div>To:</div>
+              <div>{{page.Name}}</div>
+              <div>The H Tower G Floor</div>
+              <div>Jl. H.R Said Kav. 20-21</div>
+              <div>Karet, Kuningan, Jakarta Selatan</div>
+            </section>
+            
+            <section class="invoice-id">
+              <h2>Invoice</h2>
+              <div>Number: {{page.Num}}</div>
+              <div>Date: {{page.Date}}</div>
+              <div>Due Date: {{page["Due Date"]}}</div>
+            </section>
+            
+            <section class="payment-detail">
+              <table class="full-width">
+                <thead>
+                  <tr>
+                    <th>Article</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Subtotal</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{page["Open Balance (Rp)"]}}</td>
+                  </tr>
+                  <tr>
+                    <td>Tax (PPN)</td>
+                    <td></td>
+                    <td><strong>10%</strong></td>
+                    <td>{{page["ppn (10%)"]}}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Total Payment</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{page["Total Invoice"]}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            
+            
+            <section class="payment">
+              <div>Payment To: PT. Asacreative Technology Indonesia</div>
+              <div>Bank: Bank Rakyat Indonesia</div>
+              <div>A/C No: 0445-01-0000098-30-4</div>
+            </section>
+            
+            <section class="terms-and-condition">
+              <div>Term & Condition</div>
+              <div>1. Max Installation 5 workdays after payment</div>
+            </section>
+            
+            <section class="signature">
+              <div class="sincerely-yours">Sincerely Yours</div>
+              <div class="signer-name">Ernawati</div>
+            </section>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
